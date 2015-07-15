@@ -146,3 +146,7 @@ noArgs()
 //noArgs // Doesn't work
 //twoArgs oneArg 500, 200 // Also doesn't work as it's ambiguous
 twoArgs oneArg(500), 200 // Fixed the ambiguity
+
+
+def foo2 = "bar"
+println "$foo2 + foo = ${foo2 + "foo"}"
