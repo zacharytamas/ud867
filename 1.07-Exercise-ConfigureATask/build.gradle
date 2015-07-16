@@ -18,3 +18,10 @@ Hint: Don't forget about the solution file!
 http://gradle.org/docs/current/dsl/org.gradle.api.Task.html#org.gradle.api.Task:description
 
 */
+
+task "hello" {
+  description "This is the description of my task."
+  doLast {
+    println "Hello World!"
+  }
+}
