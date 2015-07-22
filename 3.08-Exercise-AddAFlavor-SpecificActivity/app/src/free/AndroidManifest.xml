@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name="com.udacity.gradle.flavorspecificactivity.MainActivity"
+            android:label="@string/title_activity_main"></activity>
+    </application>
+
+</manifest>
