@@ -1,9 +1,16 @@
 package com.example.zacharytamas.jokes;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.zacharytamas.jokes.manualJokes.JokeSmith;
+import com.zacharytamas.jokes.wizardJokes.JokeWizard;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,7 +19,13 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        JokeWizard joker = new JokeWizard();
+        TextView jokeTextView = (TextView) this.findViewById(R.id.jokeView);
+        jokeTextView.setText(joker.getJoke());
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

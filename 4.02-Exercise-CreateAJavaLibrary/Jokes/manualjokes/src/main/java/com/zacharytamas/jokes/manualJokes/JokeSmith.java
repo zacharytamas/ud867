@@ -1,7 +1,7 @@
 package com.zacharytamas.jokes.manualJokes;
 
 public class JokeSmith {
-    String getJoke() {
+    public String getJoke() {
         return "I am so hilarious.";
     }
 }
