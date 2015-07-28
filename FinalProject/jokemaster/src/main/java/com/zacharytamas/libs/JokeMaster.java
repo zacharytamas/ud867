@@ -1,4 +1,4 @@
-package com.zacharytamas.lbs;
+package com.zacharytamas.libs;
 
 public class JokeMaster {
 

@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.zacharytamas.lbs.JokeMaster;
+import com.zacharytamas.libs.JokeMaster;
 
 
 public class MainActivity extends ActionBarActivity {
