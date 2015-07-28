@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.zacharytamas.lbs.JokeMaster;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -39,8 +41,9 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view){
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+    public void tellJoke(View view) {
+        JokeMaster jokeMaster = new JokeMaster();
+        Toast.makeText(this, jokeMaster.getJoke(), Toast.LENGTH_LONG).show();
     }
 
 
