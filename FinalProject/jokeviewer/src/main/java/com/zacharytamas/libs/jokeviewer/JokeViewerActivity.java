@@ -1,16 +1,28 @@
 package com.zacharytamas.libs.jokeviewer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class JokeViewerActivity extends AppCompatActivity {
+
+    public static final String EXTRA_JOKE_TEXT = "extra_joke_text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joke_viewer);
+
+        Intent intent = getIntent();
+        String joke = intent.getStringExtra(EXTRA_JOKE_TEXT);
+
+        if (joke != null) {
+            bindJoke(joke);
+        }
+
     }
 
     @Override
@@ -34,4 +46,12 @@ public class JokeViewerActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void bindJoke(String joke) {
+        TextView jokeMessage = (TextView) findViewById(R.id.jokeMessage);
+        if (jokeMessage != null) {
+            jokeMessage.setText(joke);
+        }
+    }
+
 }
