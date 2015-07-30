@@ -15,7 +15,7 @@ import com.zacharytamas.libs.JokeMaster;
  * An endpoint class we are exposing
  */
 @Api(
-        name = "myApi",
+        name = "jokesApi",
         version = "v1",
         namespace = @ApiNamespace(
                 ownerDomain = "backend.builditbigger.gradle.udacity.com",
