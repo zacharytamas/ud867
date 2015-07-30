@@ -11,8 +11,6 @@ import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 import com.zacharytamas.libs.JokeMaster;
 
-import javax.inject.Named;
-
 /**
  * An endpoint class we are exposing
  */
@@ -26,17 +24,6 @@ import javax.inject.Named;
         )
 )
 public class JokeEndpoint {
-
-    /**
-     * A simple endpoint method that takes a name and says Hi back
-     */
-    @ApiMethod(name = "sayHi")
-    public Joke sayHi(@Named("name") String name) {
-        Joke response = new Joke();
-        response.setData("Hi, " + name);
-
-        return response;
-    }
 
     @ApiMethod(name = "getJoke")
     public Joke getJoke() {
