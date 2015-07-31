@@ -30,7 +30,7 @@ public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
             jokesApiService = builder.build();
         }
 
-        if (mContext != null) {
+        if (params != null) {
             mContext = params[0];
         }
 
