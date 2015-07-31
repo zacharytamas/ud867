@@ -3,7 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v4.util.Pair;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -15,13 +14,14 @@ import java.io.IOException;
 /**
  * Created by zacharytamas on 7/30/15.
  */
-public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
 
     private static JokesApi jokesApiService = null;
-    private static Context context;
+    private static Context mContext = null;
+
 
     @Override
-    protected String doInBackground(Pair<Context, String>... params) {
+    protected String doInBackground(Context... params) {
         if (jokesApiService == null) {
             JokesApi.Builder builder = new JokesApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -30,7 +30,7 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
             jokesApiService = builder.build();
         }
 
-        context = params[0].first;
+        mContext = params[0];
 
         try {
             return jokesApiService.getJoke().execute().getData();
@@ -41,8 +41,10 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
 
     @Override
     protected void onPostExecute(String result) {
-        Intent jokeViewerIntent = new Intent(context, JokeViewerActivity.class);
-        jokeViewerIntent.putExtra(JokeViewerActivity.EXTRA_JOKE_TEXT, result);
-        context.startActivity(jokeViewerIntent);
+        if (mContext != null) {
+            Intent jokeViewerIntent = new Intent(mContext, JokeViewerActivity.class);
+            jokeViewerIntent.putExtra(JokeViewerActivity.EXTRA_JOKE_TEXT, result);
+            mContext.startActivity(jokeViewerIntent);
+        }
     }
 }
