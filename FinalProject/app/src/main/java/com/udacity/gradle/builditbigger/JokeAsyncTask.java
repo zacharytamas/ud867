@@ -26,14 +26,7 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
         if (jokesApiService == null) {
             JokesApi.Builder builder = new JokesApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                // NOTE This is the URL over my local network so I can run on my phone.
-                    .setRootUrl("http://192.168.0.26:8080/_ah/api/")
-                    .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-                        @Override
-                        public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-                            abstractGoogleClientRequest.setDisableGZipContent(true);
-                        }
-                    });
+                    .setRootUrl("https://zt-build-it-bigger.appspot.com/_ah/api/");
 
             jokesApiService = builder.build();
         }
