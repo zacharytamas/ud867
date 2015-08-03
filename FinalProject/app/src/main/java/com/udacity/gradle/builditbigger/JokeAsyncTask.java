@@ -35,6 +35,7 @@ public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
         }
 
         try {
+            ((MainActivity) mContext).setSupportProgressBarIndeterminate(true);
             return jokesApiService.getJoke().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
@@ -44,6 +45,7 @@ public class JokeAsyncTask extends AsyncTask<Context, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         if (mContext != null) {
+            ((MainActivity) mContext).setSupportProgressBarIndeterminate(false);
             Intent jokeViewerIntent = new Intent(mContext, JokeViewerActivity.class);
             jokeViewerIntent.putExtra(JokeViewerActivity.EXTRA_JOKE_TEXT, result);
             mContext.startActivity(jokeViewerIntent);
